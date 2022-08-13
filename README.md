@@ -47,4 +47,4 @@ $ cd [Talon]/client
 $ npm test
 ```
 
-https://github.com/eranelkin/Talon
+https://github.com/eranelkin/Talon.git
