@@ -56,26 +56,33 @@ const EventsTable = ({ events }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {events
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((event) => {
-                return (
-                  <EventRow key={event.time} event={event} classes={classes} />
-                );
-              })}
+            {events &&
+              events
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((event) => {
+                  return (
+                    <EventRow
+                      key={event.time}
+                      event={event}
+                      classes={classes}
+                    />
+                  );
+                })}
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        className={classes.pagination}
-        rowsPerPageOptions={[5, 10, 50]}
-        component="div"
-        count={events.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+      {events && (
+        <TablePagination
+          className={classes.pagination}
+          rowsPerPageOptions={[5, 10, 50]}
+          component="div"
+          count={events.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      )}
     </div>
   ) : (
     <Typography variant="h4" className={classes.errorPaper}>
@@ -85,7 +92,7 @@ const EventsTable = ({ events }) => {
 };
 
 EventsTable.propTypes = {
-  events: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  events: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 export default memo(EventsTable);

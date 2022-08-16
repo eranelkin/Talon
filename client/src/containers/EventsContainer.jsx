@@ -46,7 +46,7 @@ const EventsContainer = () => {
   ) : (
     <Paper className={classes.paper}>
       <EventsHeader filterChanged={filterChanged} />
-      <EventsTable events={filteredEvents || []} />
+      <EventsTable events={filteredEvents} />
     </Paper>
   );
 };

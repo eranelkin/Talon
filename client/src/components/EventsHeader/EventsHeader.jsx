@@ -74,7 +74,6 @@ const EventsHeader = ({ filterChanged }) => {
                   }
                   className={classes.chip}
                   onDelete={(ev) => handleDeleteTypes(ev, value)}
-                  onClick={() => console.log("clicked chip")}
                 />
               ))}
             </Box>
