@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectEventTypes } from "../../slices/eventsSlice";
 import Box from "@mui/material/Box";
@@ -26,7 +26,7 @@ const MenuProps = {
 };
 
 const EventsHeader = ({ filterChanged }) => {
-  const [selectedTypes, setSelectedTypes] = React.useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
   const eventTypes = useSelector(selectEventTypes);
 
   const classes = useStyle();
